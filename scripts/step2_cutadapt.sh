@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 定义输入文件夹和输出文件夹
-FILE=$2
-OUTPUT_DIR=$3
-trim_galore_dir=$4
-cores=$5
+FILE=$1
+OUTPUT_DIR=$2
+trim_galore_dir=$3
+cores=$4
 
 # 检查输出文件夹是否存在，如果不存在则创建
 if [ ! -d "$OUTPUT_DIR" ]; then
