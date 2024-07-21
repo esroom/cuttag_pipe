@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 定义输入文件夹和输出文件夹
-FILE=$2
-OUTPUT_DIR=$3
-fastqc_dir=$4
-cores=$5
-multiqc=$6
+FILE=$1
+OUTPUT_DIR=$2
+fastqc_dir=$3
+cores=$4
+multiqc=$5
 # 检查输出文件夹是否存在，如果不存在则创建
 if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
@@ -19,8 +19,8 @@ if [ -f "$FILE" ]; then
     do
         r1=`echo ${line} | awk '{print $4}'`
         r2=`echo ${line} | awk '{print $5}'`
-        bash ${fastqc_dir} -t ${cores}  -o ${OUTPUT_DIR}/output ${fastqc_dir} ${r1}
-        bash ${fastqc_dir} -t ${cores}  -o ${OUTPUT_DIR}/output ${fastqc_dir} ${r2}
+        ${fastqc_dir} -t ${cores}  -o ${OUTPUT_DIR}/output ${fastqc_dir} ${r1}
+        ${fastqc_dir} -t ${cores}  -o ${OUTPUT_DIR}/output ${fastqc_dir} ${r2}
         # 你可以在这里对每一行进行处理
     done < "$FILE"
     

@@ -80,8 +80,8 @@ else
   # 调用函数，检查并创建目录中的子目录
   check_and_create_dirs "${step2_outdir}"
   # 调用step2.sh脚本, 进行cutadapt质控
-  cutadapt_dir=$(jq -r '.cutadapt' ${soft_file})
-  cutadapt_cores=$(jq -r '.cutadapt' ${cuttag_file})
+  cutadapt_dir=$(jq -r '.trim_galore' ${soft_file})
+  cutadapt_cores=$(jq -r '.trim_galore' ${cuttag_file})
   bash ${scripts_dir}/step2_cutadapt.sh  ${input_file} ${step2_outdir} ${cutadapt_dir} ${cutadapt_cores}
 fi
 
@@ -96,7 +96,7 @@ else
   check_and_create_dirs "${step3_outdir}"
 
   # 制作一个Step3的输入文件
-  sed 's#/1.fq.gz/1_val_1.fq.gz#' |  's#/2.fq.gz/2_val_2.fq.gz#' ${input_file}  > \
+  cat  ${input_file} | sed 's#1.fq.gz#1_val_1.fq.gz#' | sed 's#2.fq.gz#2_val_2.fq.gz#'  > \
     ${step3_outdir}/input/Step3.input
   # 调用step3.sh脚本, 进行aligment比对
   bowtie2_dir=$(jq -r '.bowtie2' ${soft_file})
