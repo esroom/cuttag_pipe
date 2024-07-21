@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # 定义输入文件夹和输出文件夹
-FILE=$1
-OUTPUT_DIR=$2
-fastqc_dir=$3
-cores=$4
-multiqc=$5
+FILE=$2
+OUTPUT_DIR=$3
+fastqc_dir=$4
+cores=$5
+multiqc=$6
 # 检查输出文件夹是否存在，如果不存在则创建
 if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
