@@ -1,0 +1,3 @@
+samplename  sample  replicate R1  R2  IgG
+THMA_THMA1  THMA_THMA rep1  R1  R2  IgG_rep1
+IgG_rep1  IgG rep1  R1  R2  --
