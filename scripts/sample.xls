@@ -1,3 +1,4 @@
-samplename  sample  replicate R1  R2  IgG
-THMA_THMA1  THMA_THMA rep1  R1  R2  IgG_rep1
-IgG_rep1  IgG rep1  R1  R2  --
+TMHA_IgG1 TMHA_IgG  rep1  /mnt/f/Cuttag/01.RawData/TMHA_IgG1/TMHA_IgG1_1.fq.gz    /mnt/f/Cuttag/01.RawData/TMHA_IgG1/TMHA_IgG1_2.fq.gz  --
+TMHA_IgG2 TMHA_IgG  rep2  /mnt/f/Cuttag/01.RawData/TMHA_IgG2/TMHA_IgG2_1.fq.gz    /mnt/f/Cuttag/01.RawData/TMHA_IgG2/TMHA_IgG2_2.fq.gz  --
+TMHA_TMHA1  TMHA_TMHA rep1  /mnt/f/Cuttag/01.RawData/TMHA_TMHA1/TMHA_TMHA1_1.fq.gz  /mnt/f/Cuttag/01.RawData/TMHA_TMHA1/TMHA_TMHA1_2.fq.gz  TMHA_IgG1
+TMHA_TMHA2  TMHA_TMHA rep2  /mnt/f/Cuttag/01.RawData/TMHA_TMHA2/TMHA_TMHA2_1.fq.gz  /mnt/f/Cuttag/01.RawData/TMHA_TMHA2/TMHA_TMHA2_2.fq.gz  TMHA_IgG2
