@@ -96,14 +96,14 @@ else
   check_and_create_dirs "${step3_outdir}"
 
   # 制作一个Step3的输入文件
-  cat  ${input_file} | sed 's#1.fq.gz#1_val_1.fq.gz#' | sed 's#2.fq.gz#2_val_2.fq.gz#'  > \
-    ${step3_outdir}/input/Step3.input
+  ${scripts_dir}/step3_input.R ${input_file} {outdir}
+
   # 调用step3.sh脚本, 进行aligment比对
   bowtie2_dir=$(jq -r '.bowtie2' ${soft_file})
   bowtie2_cores=$(jq -r '.bowtie2' ${cuttag_file})
   ref_dir=$(jq -r '.reference' ${cuttag_file})  
   spike_in_ref=$(jq -r '.spike_in_ref' ${cuttag_file})
-  bash ${scripts_dir}/step3_aligment.sh  ${step3_outdir}/input/Step3.input ${step3_outdir}/output \
+  bash ${scripts_dir}/step3_aligment.sh  ${step3_outdir}/input/input.xls ${step3_outdir}/output \
     ${bowtie2_dir} ${bowtie2_cores} ${ref_dir} ${spike_in_ref}
 fi
 
