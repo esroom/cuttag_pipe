@@ -32,7 +32,6 @@ if [ -z "${input_file}" ] || [ -z "${soft_file}" ] || [ -z "${cuttag_file}" ] ||
   usage
 fi
 
-#!/bin/bash
 
 # 检查并创建目录的函数
 check_and_create_dirs() {
@@ -83,7 +82,7 @@ else
   # 调用step2.sh脚本, 进行cutadapt质控
   cutadapt_dir=$(jq -r '.cutadapt' ${soft_file})
   cutadapt_cores=$(jq -r '.cutadapt' ${cuttag_file})
-  bash ${scripts_dir}/step2_cutadapt.sh  ${input_file} ${step2_outdir}${cutadapt_dir} ${cutadapt_cores}
+  bash ${scripts_dir}/step2_cutadapt.sh  ${input_file} ${step2_outdir} ${cutadapt_dir} ${cutadapt_cores}
 fi
 
 #  Step3 
