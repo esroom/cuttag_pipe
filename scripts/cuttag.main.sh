@@ -33,6 +33,16 @@ if [ -z "${input_file}" ] || [ -z "${soft_file}" ] || [ -z "${cuttag_file}" ] ||
 fi
 
 
+# 判断是否为绝对路径
+if [[ "$outdir" = /* ]]; then
+    # 是绝对路径，直接输出
+    echo "绝对路径: $outdir"
+else
+    # 不是绝对路径，补全为绝对路径
+    outdir=$(realpath "$outdir")
+    echo "补全后的绝对路径: $outdir"
+fi
+
 # 检查并创建目录的函数
 check_and_create_dirs() {
   base_dir=$1
@@ -96,7 +106,7 @@ else
   check_and_create_dirs "${step3_outdir}"
 
   # 制作一个Step3的输入文件
-  ${scripts_dir}/step3_input.R ${input_file} {outdir}
+  ${scripts_dir}/make_step3_input.R  ${input_file} {outdir}
 
   # 调用step3.sh脚本, 进行aligment比对
   bowtie2_dir=$(jq -r '.bowtie2' ${soft_file})

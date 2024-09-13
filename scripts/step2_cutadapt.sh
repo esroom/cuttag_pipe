@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -uex 
 # 定义输入文件夹和输出文件夹
 FILE=$1
 OUTPUT_DIR=$2
@@ -9,6 +9,8 @@ cores=$4
 # 检查输出文件夹是否存在，如果不存在则创建
 if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
+    mkdir  $OUTPUT_DIR/output/
+    mkdir  $OUTPUT_DIR/shell
 fi
 
 if [ -f "$FILE" ]; then

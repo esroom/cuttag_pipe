@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -ue
 # 定义输入文件夹和输出文件夹
 FILE=$1
 OUTPUT_DIR=$2
@@ -9,6 +10,9 @@ multiqc=$5
 # 检查输出文件夹是否存在，如果不存在则创建
 if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
+    mkdir ${OUTPUT_DIR}/output
+    mkdir ${OUTPUT_DIR}/multiqc
+    mkdir ${OUTPUT_DIR}/shell 
 fi
 
 # 遍历输入文件夹中的所有FASTQ文件并执行FastQC分析

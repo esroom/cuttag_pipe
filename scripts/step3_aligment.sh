@@ -12,6 +12,8 @@ if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir -p "$OUTPUT_DIR"
 fi
 
+[ ! -d "${OUTPUT_DIR}/output/bowtie2_summary" ] && mkdir ${OUTPUT_DIR}/output/bowtie2_summary
+
 #如果去接头，则使用去接头后数据， 以R1_val_1.fq.gz结尾
 
 #cores=12
